@@ -690,7 +690,7 @@ module ActiveMerchant #:nodoc:
 
         success = response[:decision] == "ACCEPT"
         message = @@response_codes[('r' + response[:reasonCode]).to_sym] rescue response[:message]
-        authorization = success ? [ options[:order_id], response[:requestID], response[:requestToken], action, amount, options[:currency]].compact.join(";") : nil
+        authorization = success ? [ options[:order_id], response[:requestID], response[:requestToken], action, amount, 'ARS'].compact.join(";") : nil
 
         Response.new(success, message, response,
           :test => test?,
