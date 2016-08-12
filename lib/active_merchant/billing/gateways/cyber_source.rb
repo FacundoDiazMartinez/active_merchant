@@ -29,7 +29,7 @@ module ActiveMerchant #:nodoc:
       self.supported_cardtypes = [:visa, :master, :american_express, :discover]
       self.supported_countries = %w(US BR CA CN DK FI FR DE JP MX NO SE GB SG)
 
-      self.default_currency = 'USD'
+      self.default_currency = 'ARS'
       self.currencies_without_fractions = %w(JPY)
 
       self.homepage_url = 'http://www.cybersource.com'
