@@ -295,6 +295,7 @@ module ActiveMerchant #:nodoc:
 
       def build_void_request(identification, options)
         order_id, request_id, request_token, action, money, currency  = identification.split(";")
+        currency = 'ARS'
         options[:order_id] = order_id
 
         xml = Builder::XmlMarkup.new :indent => 2
@@ -430,7 +431,7 @@ module ActiveMerchant #:nodoc:
 
       def add_purchase_data(xml, money = 0, include_grand_total = false, options={})
         xml.tag! 'purchaseTotals' do
-          xml.tag! 'currency', options[:currency] || currency(money)
+          xml.tag! 'currency', 'ARS'
           xml.tag!('grandTotalAmount', localized_amount(money.to_i, options[:currency] || default_currency))  if include_grand_total
         end
       end
